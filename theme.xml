@@ -8,6 +8,7 @@
     <title>Delgraf Luxury</title>
     <parent>Swissup/argento-luxury</parent>
     <media>
-        <preview_image>media/preview.jpg</preview_image>
+        <preview_image>media/preview.png</preview_image>
     </media>
 </theme>
+
