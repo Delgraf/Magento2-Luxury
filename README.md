@@ -1,2 +1,2 @@
-# Magento2-CustomArgentoLuxury
+# Magento2-Luxury
 Custom theme based on Argento Luxury
