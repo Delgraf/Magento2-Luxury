@@ -1,7 +1,9 @@
 <?php
-use \Magento\Framework\Component\ComponentRegistrar;
-ComponentRegistrar::register(
-    ComponentRegistrar::THEME,
-    'frontend/Delgraf/argento-luxury',
-    __DIR__
-);
+/**
+ * Copyright © Delgraf. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+use Magento\Framework\Component\ComponentRegistrar;
+
+ComponentRegistrar::register(ComponentRegistrar::THEME, 'frontend/Delgraf/luxury', __DIR__);
