@@ -1,0 +1,20 @@
+{
+    "name": "delgraf/theme-frontend-luma",
+    "description": "Custom theme based on Argento Luxury",
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "~8.2.0||~8.3.0||~8.4.0",
+        "magento/framework": "*",
+        "swissup/theme-frontend-argento-chic": "*"
+    },
+    "type": "magento2-theme",
+    "version": "1.0.0",
+    "license": "GPL-3.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    }
+}
