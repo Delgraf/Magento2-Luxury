@@ -78,7 +78,9 @@ $suffix = $block->showSuffix();
                        class="input-text
                         <?= $block->escapeHtmlAttr($block->getAttributeValidationClass('firstname')) ?>"
                         <?= ($block->getAttributeValidationClass('firstname') == 'required-entry') ? '
-                       data-validate="{required:true}"' : '' ?>>
+                       data-validate="{required:true}"' : '' ?>
+                       style="text-transform:uppercase"
+                       onblur="this.value=this.value.toUpperCase()">
             </div>
         </div>
     <?php if ($middle): ?>
@@ -94,7 +96,9 @@ $suffix = $block->showSuffix();
                        title="<?= $block->escapeHtmlAttr($block->getStoreLabel('middlename')) ?>"
                        class="input-text
                        <?= $block->escapeHtmlAttr($block->getAttributeValidationClass('middlename')) ?>"
-                       <?= $isMiddlenameRequired ? ' data-validate="{required:true}"' : '' ?>>
+                       <?= $isMiddlenameRequired ? ' data-validate="{required:true}"' : '' ?>
+                       style="text-transform:uppercase"
+                       onblur="this.value=this.value.toUpperCase()">
             </div>
         </div>
     <?php endif; ?>
@@ -110,7 +114,9 @@ $suffix = $block->showSuffix();
                        class="input-text
                         <?= $block->escapeHtmlAttr($block->getAttributeValidationClass('lastname')) ?>"
                         <?= ($block->getAttributeValidationClass('lastname') == 'required-entry') ? '
-                       data-validate="{required:true}"' : '' ?>>
+                       data-validate="{required:true}"' : '' ?>
+                       style="text-transform:uppercase"
+                       onblur="this.value=this.value.toUpperCase()">
             </div>
         </div>
     <?php if ($suffix): ?>
