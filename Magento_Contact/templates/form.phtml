@@ -35,7 +35,10 @@ $viewModel = $block->getViewModel();
                        value="<?= $escaper->escapeHtmlAttr($viewModel->getUserName()) ?>"
                        class="input-text"
                        type="text"
-                       data-validate="{required:true}"/>
+                       data-validate="{required:true}"
+                       style="text-transform:uppercase"
+                       onblur="this.value=this.value.toUpperCase()"
+                />
             </div>
         </div>
         <div class="field email required">
@@ -49,6 +52,24 @@ $viewModel = $block->getViewModel();
                        type="email"
                        data-validate="{required:true, 'validate-email':true}"
                        data-mage-init='{"mage/trim-input":{}}'
+                       style="text-transform:lowercase"
+                       onblur="this.value=this.value.toLowerCase()"
+                />
+            </div>
+        </div>
+        <div class="field confirmation required">
+            <label class="label" for="email-confirmation"><span><?= $block->escapeHtml(__('Confirm Email')) ?></span></label>
+            <div class="control">
+                <input name="email_confirmation"
+                       id="email-confirmation"
+                       title="<?= $block->escapeHtmlAttr(__('Confirm Email')) ?>"
+                       value="<?= $block->escapeHtmlAttr($viewModel->getUserEmail()) ?>"
+                       class="input-text"
+                       type="text"
+                       data-validate="{required:true, equalTo:'#email'}"
+                       data-mage-init='{"mage/trim-input":{}}'
+                       style="text-transform:lowercase"
+                       onblur="this.value=this.value.toLowerCase()"
                 />
             </div>
         </div>
@@ -61,7 +82,8 @@ $viewModel = $block->getViewModel();
                        value="<?= $escaper->escapeHtmlAttr($viewModel->getUserTelephone()) ?>"
                        class="input-text"
                        type="tel"
-                       data-validate="{required:true}" />
+                       data-validate="{required:true}"
+                />
             </div>
         </div>
         <div class="field comment required">
