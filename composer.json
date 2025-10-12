@@ -1,5 +1,5 @@
 {
-    "name": "delgraf/theme-frontend-argento-luxury",
+    "name": "delgraf/theme-frontend-custom-argento-luxury",
     "description": "Custom theme based on Argento Luxury",
     "config": {
         "sort-packages": true
