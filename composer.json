@@ -1,4 +1,5 @@
 {
+    "minimum-stability": "dev",
     "name": "delgraf/theme-frontend-luxury",
     "description": "Custom theme based on Argento Luxury",
     "config": {
