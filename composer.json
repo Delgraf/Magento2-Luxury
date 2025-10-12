@@ -1,5 +1,5 @@
 {
-    "name": "delgraf/theme-frontend-luma",
+    "name": "delgraf/theme-frontend-custom-theme",
     "description": "Custom theme based on Argento Luxury",
     "config": {
         "sort-packages": true
