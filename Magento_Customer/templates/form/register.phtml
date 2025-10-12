@@ -242,7 +242,25 @@ $formData = $block->getFormData();
                        title="<?= $escaper->escapeHtmlAttr(__('Email')) ?>"
                        class="input-text"
                        data-mage-init='{"mage/trim-input":{}}'
-                       data-validate="{required:true, 'validate-email':true}">
+                       data-validate="{required:true, 'validate-email':true}"
+                       style="text-transform:lowercase"
+                       onblur="this.value=this.value.toLowerCase()">
+            </div>
+        </div>
+        <div class="field confirmation required">
+            <label for="email-confirmation" class="label">
+                <span><?= $escaper->escapeHtml(__('Confirm Email')) ?></span>
+            </label>
+            <div class="control">
+                <input type="text"
+                       name="email_confirmation"
+                       title="<?= $escaper->escapeHtmlAttr(__('Confirm Email')) ?>"
+                       id="email-confirmation"
+                       class="input-text"
+                       data-validate="{required:true, equalTo:'#email_address'}"
+                       autocomplete="off"
+                       style="text-transform:lowercase"
+                       onblur="this.value=this.value.toLowerCase()">
             </div>
         </div>
         <div class="field password required">
