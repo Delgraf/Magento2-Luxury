@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright 2011 Adobe
- * All Rights Reserved.
+ * Copyright © Delgraf. All rights reserved.
+ * See COPYING.txt for license details.
  */
 
 // phpcs:disable Magento2.Templates.ThisInTemplate
@@ -52,7 +52,7 @@ $viewModel = $block->getViewModel();
                 />
             </div>
         </div>
-        <div class="field telephone">
+        <div class="field telephone required">
             <label class="label" for="telephone"><span><?= $escaper->escapeHtml(__('Phone Number')) ?></span></label>
             <div class="control">
                 <input name="telephone"
@@ -60,7 +60,8 @@ $viewModel = $block->getViewModel();
                        title="<?= $escaper->escapeHtmlAttr(__('Phone Number')) ?>"
                        value="<?= $escaper->escapeHtmlAttr($viewModel->getUserTelephone()) ?>"
                        class="input-text"
-                       type="tel" />
+                       type="tel"
+                       data-validate="{required:true}" />
             </div>
         </div>
         <div class="field comment required">
