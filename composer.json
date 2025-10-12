@@ -7,7 +7,7 @@
     "require": {
         "php": "~8.2.0||~8.3.0||~8.4.0",
         "magento/framework": "*",
-        "swissup/theme-frontend-argento-chic": "*"
+        "swissup/theme-frontend-argento-luxury": "*"
     },
     "type": "magento2-theme",
     "version": "1.0.0",
