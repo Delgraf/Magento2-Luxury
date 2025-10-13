@@ -109,12 +109,37 @@ $regionProvider = $block->getRegionProvider();
                 </div>
             </div>
         <?php endif; ?>
-        <div class="field country required">
-            <label class="label" for="country">
-                <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('country_id') ?></span>
+        <div class="field zip required">
+            <label class="label" for="zip">
+                <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('postcode') ?></span>
             </label>
             <div class="control">
-                <?= $block->getCountryHtmlSelect() ?>
+                <input type="text"
+                       name="postcode"
+                       value="<?= $escaper->escapeHtmlAttr($block->getAddress()->getPostcode()) ?>"
+                       title="<?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('postcode') ?>"
+                       id="zip"
+                       class="input-text validate-zip-international
+                        <?= $escaper->escapeHtmlAttr($_postcodeValidationClass) ?>">
+                <div role="alert" class="message warning">
+                    <span></span>
+                </div>
+                <?= /* @noEscape */ $secureRenderer->renderStyleAsTag("display: none;", 'div.message.warning') ?>
+            </div>
+        </div>
+        <div class="field city required">
+            <label class="label" for="city">
+                <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('city') ?></span>
+            </label>
+            <div class="control">
+                <input type="text"
+                       name="city"
+                       value="<?= $escaper->escapeHtmlAttr($block->getAddress()->getCity()) ?>"
+                       title="<?= $escaper->escapeHtmlAttr(__('City')) ?>"
+                       class="input-text <?= $escaper->escapeHtmlAttr($_cityValidationClass) ?>"
+                       id="city"
+                       style="text-transform:uppercase"
+                       onblur="this.value=this.value.toUpperCase()">
             </div>
         </div>
         <div class="field region required">
@@ -138,37 +163,12 @@ $regionProvider = $block->getRegionProvider();
                         <?= !$_displayAll ? ' disabled="disabled"' : '' ?>/>
             </div>
         </div>
-        <div class="field city required">
-            <label class="label" for="city">
-                <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('city') ?></span>
+        <div class="field country required">
+            <label class="label" for="country">
+                <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('country_id') ?></span>
             </label>
             <div class="control">
-                <input type="text"
-                       name="city"
-                       value="<?= $escaper->escapeHtmlAttr($block->getAddress()->getCity()) ?>"
-                       title="<?= $escaper->escapeHtmlAttr(__('City')) ?>"
-                       class="input-text <?= $escaper->escapeHtmlAttr($_cityValidationClass) ?>"
-                       id="city"
-                       style="text-transform:uppercase"
-                       onblur="this.value=this.value.toUpperCase()">
-            </div>
-        </div>
-        <div class="field zip required">
-            <label class="label" for="zip">
-                <span><?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('postcode') ?></span>
-            </label>
-            <div class="control">
-                <input type="text"
-                       name="postcode"
-                       value="<?= $escaper->escapeHtmlAttr($block->getAddress()->getPostcode()) ?>"
-                       title="<?= /* @noEscape */ $block->getAttributeData()->getFrontendLabel('postcode') ?>"
-                       id="zip"
-                       class="input-text validate-zip-international
-                        <?= $escaper->escapeHtmlAttr($_postcodeValidationClass) ?>">
-                <div role="alert" class="message warning">
-                    <span></span>
-                </div>
-                <?= /* @noEscape */ $secureRenderer->renderStyleAsTag("display: none;", 'div.message.warning') ?>
+                <?= $block->getCountryHtmlSelect() ?>
             </div>
         </div>
 
