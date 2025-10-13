@@ -148,7 +148,9 @@ $regionProvider = $block->getRegionProvider();
                        value="<?= $escaper->escapeHtmlAttr($block->getAddress()->getCity()) ?>"
                        title="<?= $escaper->escapeHtmlAttr(__('City')) ?>"
                        class="input-text <?= $escaper->escapeHtmlAttr($_cityValidationClass) ?>"
-                       id="city">
+                       id="city"
+                       style="text-transform:uppercase"
+                       onblur="this.value=this.value.toUpperCase()">
             </div>
         </div>
         <div class="field zip required">
