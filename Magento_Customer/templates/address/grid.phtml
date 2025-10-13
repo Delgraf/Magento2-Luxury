@@ -18,6 +18,7 @@ $customerAddressView = $block->getData('customer_address');
                     <caption class="table-caption"><?= $escaper->escapeHtml(__('Additional addresses')) ?></caption>
                     <thead>
                     <tr>
+                        <th scope="col" class="col actions"> </th>
                         <th scope="col" class="col company"><?= $escaper->escapeHtml(__('Company')) ?></th>
                         <th scope="col" class="col firstname"><?= $escaper->escapeHtml(__('First Name')) ?></th>
                         <th scope="col" class="col lastname"><?= $escaper->escapeHtml(__('Last Name')) ?></th>
@@ -28,12 +29,24 @@ $customerAddressView = $block->getData('customer_address');
                         <th scope="col" class="col country"><?= $escaper->escapeHtml(__('Country')) ?></th>
                         <th scope="col" class="col phone"><?= $escaper->escapeHtml(__('Phone')) ?></th>
                         <th scope="col" class="col fax"><?= $escaper->escapeHtml(__('Fax')) ?></th>
-                        <th scope="col" class="col actions"> </th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php foreach ($additionalAddresses as $address): ?>
                         <tr>
+                            <td data-th="<?= $escaper->escapeHtml(__('Actions')) ?>" class="col actions">
+                                <a class="action edit" href="
+                                <?= $escaper->escapeUrl(
+                                    $block->getUrl('customer/address/edit', ['id' => $address->getId()])
+                                ) ?>">
+                                    <span><?= $escaper->escapeHtml(__('Edit')) ?></span>
+                                </a>
+                                <a class="action delete"
+                                   href="#" role="delete-address"
+                                   data-address="<?= $escaper->escapeHtmlAttr($address->getId()) ?>">
+                                    <span><?= $escaper->escapeHtml(__('Delete')) ?></span>
+                                </a>
+                            </td>
                             <td data-th="<?= $escaper->escapeHtml(__('Company')) ?>" class="col company">
                                 <?= $escaper->escapeHtml($address->getCompany()) ?>
                             </td>
@@ -63,19 +76,6 @@ $customerAddressView = $block->getData('customer_address');
                             </td>
                             <td data-th="<?= $escaper->escapeHtml(__('Fax')) ?>" class="col fax">
                                 <?= $escaper->escapeHtml($address->getFax()) ?>
-                            </td>
-                            <td data-th="<?= $escaper->escapeHtml(__('Actions')) ?>" class="col actions">
-                                <a class="action edit" href="
-                                <?= $escaper->escapeUrl(
-                                    $block->getUrl('customer/address/edit', ['id' => $address->getId()])
-                                ) ?>">
-                                    <span><?= $escaper->escapeHtml(__('Edit')) ?></span>
-                                </a>
-                                <a class="action delete"
-                                   href="#" role="delete-address"
-                                   data-address="<?= $escaper->escapeHtmlAttr($address->getId()) ?>">
-                                    <span><?= $escaper->escapeHtml(__('Delete')) ?></span>
-                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
