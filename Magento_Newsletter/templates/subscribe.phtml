@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright 2011 Adobe
- * All Rights Reserved.
+ * Copyright © Delgraf. All rights reserved.
+ * See COPYING.txt for license details.
  */
 
 /** @var \Magento\Newsletter\Block\Subscribe $block */
@@ -28,6 +28,8 @@ $buttonLockManager = $block->getData('button_lock_manager');
                                placeholder="<?= $escaper->escapeHtml(__('Enter your email address')) ?>"
                                data-mage-init='{"mage/trim-input":{}}'
                                data-validate="{required:true, 'validate-email':true}"
+                               style="text-transform:lowercase"
+                               onblur="this.value=this.value.toLowerCase()"
                         />
                     </label>
                 </div>
