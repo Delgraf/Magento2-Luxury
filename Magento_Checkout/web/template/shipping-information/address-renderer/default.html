@@ -9,10 +9,10 @@
     <text args="address().prefix"></text> <text args="address().firstname"></text> <text args="address().middlename"></text>
     <text args="address().lastname"></text> <text args="address().suffix"></text><br>
     <text args="_.values(_.compact(address().street)).join(', ')"></text><br>
-    <text args="address().postcode"/> <text args="address().city"/> <if args="address().region">(<text args="address().regionCode"/>)</if><br>
+    <text args="address().postcode"></text> <text args="address().city"></text> <if args="address().region">(<text args="address().regionCode"></text>)</if><br>
     <text args="getCountryName(address().countryId)"></text><br>
-    <if args="address().telephone"><span translate="'T.'"></span> <text args="address().telephone"/><br></if>
-    <if args="address().fax"><span translate="'F.'"></span> <text args="address().fax"/><br></if>
+    <if args="address().telephone"><span translate="'T.'"></span> <text args="address().telephone"></text><br></if>
+    <if args="address().fax"><span translate="'F.'"></span> <text args="address().fax"></text><br></if>
     
     <if args="address().vatId">
         <translate args="'VAT'"></translate>: <text args="address().vatId"></text><br>
