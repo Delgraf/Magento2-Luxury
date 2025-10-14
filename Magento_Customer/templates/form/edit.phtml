@@ -69,6 +69,19 @@ $buttonLockManager = $block->getData('button_lock_manager');
                        onblur="this.value=this.value.toLowerCase()" />
             </div>
         </div>
+        <div class="field confirmation email required" data-container="confirm-email">
+            <label class="label" for="email-confirmation">
+                <span><?= $escaper->escapeHtml(__('Confirm Email')) ?></span>
+            </label>
+            <div class="control">
+                <input type="text" class="input-text" name="email_confirmation" id="email-confirmation"
+                    data-input="confirm-email"
+                    autocomplete="off"
+                    data-validate="{required:true, equalTo:'#email'}"
+                    style="text-transform:lowercase"
+                    onblur="this.value=this.value.toLowerCase()" />
+            </div>
+        </div>
         <div class="field password current required">
             <label class="label" for="current-password">
                 <span><?= $escaper->escapeHtml(__('Current Password')) ?></span>
