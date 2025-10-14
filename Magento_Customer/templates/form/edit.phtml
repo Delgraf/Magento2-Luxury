@@ -90,6 +90,7 @@ $buttonLockManager = $block->getData('button_lock_manager');
             </label>
             <div class="control">
                 <input type="password" class="input-text" name="current_password" id="current-password"
+                       title="<?= $escaper->escapeHtmlAttr(__('Current Password')) ?>"
                        data-input="current-password"
                        autocomplete="off" />
             </div>
@@ -101,6 +102,7 @@ $buttonLockManager = $block->getData('button_lock_manager');
                 <input type="password" class="input-text" name="password" id="password"
                     data-password-min-length="<?= $escaper->escapeHtml($block->getMinimumPasswordLength()) ?>"
                     data-password-min-character-sets="<?= $escaper->escapeHtml($minCharacterSets) ?>"
+                    title="<?= $escaper->escapeHtmlAttr(__('New Password')) ?>"
                     data-input="new-password"
                     data-validate="{required:true, 'validate-customer-password':true}"
                     autocomplete="off" />
