@@ -1,8 +1,7 @@
 define([
     'Swissup_Firecheckout/js/utils/form-field/manager',
     'Swissup_Firecheckout/js/utils/form-field/classname',
-    'mage/translate',
-    'Magento_Ui/js/lib/view/utils/async'
+    'mage/translate'
 ], function (manager, classname, $t, $) {
     'use strict';
 
@@ -18,18 +17,4 @@ define([
     });
 
     
-    $.async('.content.minicart-items .details-qty', function (el) {     // add an icon to the each item content
-        $(el).after(
-            '<div class="remove item">' +
-                '<a href="#" title="Remove Item" class="remove-item">' +
-                    '<i class="icon-trash"></i>' +
-                '</a>' +
-            '</div>'
-        );
-
-        $(el).siblings('.remove.item').find('.remove-item').click(function (event){
-            var item = event.currentTarget;
-            $(item).parents(".product-item-details").find("input[type='number']").val(0).change(); // change the quantity to "0"
-        });
-    });
 });
