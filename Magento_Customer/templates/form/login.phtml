@@ -1,7 +1,7 @@
 <?php
 /**
- * Copyright 2011 Adobe
- * All Rights Reserved.
+ * Copyright © Delgraf. All rights reserved.
+ * See COPYING.txt for license details.
  */
 
 // phpcs:disable Generic.Files.LineLength.TooLong
@@ -31,7 +31,9 @@ $buttonLockManager = $block->getData('button_lock_manager');
                             <?php if ($block->isAutocompleteDisabled()): ?> autocomplete="off"<?php endif; ?>
                                id="email" type="email" class="input-text"
                                title="<?= $escaper->escapeHtmlAttr(__('Email')) ?>"
-                               data-validate="{required:true, 'validate-email':true}">
+                               data-validate="{required:true, 'validate-email':true}"
+                               style="text-transform:lowercase"
+                               onblur="this.value=this.value.toLowerCase()">
                     </div>
                 </div>
                 <div class="field password required">
