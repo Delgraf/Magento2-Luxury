@@ -120,6 +120,7 @@ $buttonLockManager = $block->getData('button_lock_manager');
             </label>
             <div class="control">
                 <input type="password" class="input-text" name="password_confirmation" id="password-confirmation"
+                    title="<?= $escaper->escapeHtmlAttr(__('Confirm New Password')) ?>"
                     data-input="confirm-password"
                     autocomplete="off" />
             </div>
