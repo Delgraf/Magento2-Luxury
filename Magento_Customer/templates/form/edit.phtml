@@ -76,6 +76,8 @@ $buttonLockManager = $block->getData('button_lock_manager');
             <div class="control">
                 <input type="text" class="input-text" name="email_confirmation" id="email-confirmation"
                     data-input="confirm-email"
+                    value="<?= $escaper->escapeHtmlAttr($block->getCustomer()->getEmail()) ?>"
+                    title="<?= $escaper->escapeHtmlAttr(__('Confirm Email')) ?>"
                     autocomplete="off"
                     data-validate="{required:true, equalTo:'#email'}"
                     style="text-transform:lowercase"
