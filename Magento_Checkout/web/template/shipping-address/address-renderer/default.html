@@ -1,22 +1,19 @@
 <!--
 /**
- * Copyright 2015 Adobe
- * All Rights Reserved.
+ * Copyright © Delgraf. All rights reserved.
+ * See COPYING.txt for license details.
  */
 -->
 <div class="shipping-address-item" css="'selected-item' : isSelected() , 'not-selected-item':!isSelected()">
-    <if args="address().company">
-        <text args="address().company"></text><br>
-    </if>
+    <if args="address().company"><text args="address().company"></text><br></if>
     <text args="address().prefix"></text> <text args="address().firstname"></text> <text args="address().middlename"></text>
     <text args="address().lastname"></text> <text args="address().suffix"></text><br>
     <text args="_.values(_.compact(address().street)).join(', ')"></text><br>
-    <text args="address().postcode"></text> <text args="address().city"></text> (<span text="address().region"></span>)<br>
+    <text args="address().postcode"></text> <text args="address().city"></text> <if args="address().region">(<text args="address().regionCode"></text>)</if><br>
     <text args="getCountryName(address().countryId)"></text><br>
-    <a if="address().telephone" attr="'href': 'tel:' + address().telephone" text="address().telephone"></a><br>
-    <if args="address().vatId">
-        <translate args="'VAT'"></translate>: <text args="address().vatId"></text><br>
-    </if>
+    <if args="address().telephone"><translate args="'T.'"></translate> <text args="address().telephone"></text><br></if>
+    <if args="address().fax"><translate args="'F.'"></translate> <text args="address().fax"></text><br></if>
+    <if args="address().vatId"><translate args="'VAT'"></translate> <text args="address().vatId"></text><br></if>
     <each args="data: address().customAttributes, as: 'element'">
         <text args="$parent.getCustomAttributeLabel(element)"></text>
         <br>
