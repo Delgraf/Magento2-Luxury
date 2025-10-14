@@ -13,7 +13,6 @@
     <text args="getCountryName(address().countryId)"></text><br>
     <if args="address().telephone"><translate args="'T.'"></translate> <text args="address().telephone"></text><br></if>
     <if args="address().fax"><translate args="'F.'"></translate> <text args="address().fax"></text><br></if>
-    
     <if args="address().vatId"><translate args="'VAT'"></translate> <text args="address().vatId"></text><br></if>
     <each args="data: address().customAttributes, as: 'element'">
         <text args="$parent.getCustomAttributeLabel(element)"></text>
