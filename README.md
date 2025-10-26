@@ -13,7 +13,7 @@ Custom theme based on Argento Luxury
 ## Uninstall with Composer
 \* = in production please use the `--keep-generated` option
 
- - Remove theme by running `composer remove delgraf/theme-frontend-luxury:dev-master`
+ - Remove theme by running `composer remove delgraf/theme-frontend-luxury`
  - Apply updates by running `php bin/magento setup:upgrade`\*
  - Compile code by running `php bin/magento setup:di:compile`
  - Deploy static content by running `php bin/magento setup:static-content:deploy`
