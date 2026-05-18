@@ -50,6 +50,18 @@
                 <width>88</width>
                 <height>88</height>
             </image>
+            <image id="side_column_widget_product_thumbnail" type="thumbnail">
+                <width>75</width>
+                <height>75</height>
+            </image>
+            <image id="wishlist_sidebar_block" type="thumbnail">
+                <width>75</width>
+                <height>75</height>
+            </image>
+            <image id="wishlist_thumbnail" type="small_image">
+                <width>240</width>
+                <height>240</height>
+            </image>
         </images>
     </media>
     <vars module="Swissup_ThemeEditor">
