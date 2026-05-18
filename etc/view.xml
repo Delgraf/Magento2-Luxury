@@ -23,8 +23,8 @@
                 <height>240</height>
             </image>
             <image id="new_products_content_widget_list" type="small_image">
-                <width>270</width>
-                <height>270</height>
+                <width>280</width>
+                <height>280</height>
             </image>
             <image id="product_page_image_small" type="thumbnail">
                 <width>88</width>
@@ -59,8 +59,8 @@
                 <height>75</height>
             </image>
             <image id="wishlist_thumbnail" type="small_image">
-                <width>240</width>
-                <height>240</height>
+                <width>280</width>
+                <height>280</height>
             </image>
         </images>
     </media>
