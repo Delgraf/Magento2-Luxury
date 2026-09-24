@@ -2,51 +2,51 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-<referenceContainer name="content">
-    <container name="reviews-wrapper" htmlTag="div" htmlId="tab-label-reviews" htmlClass="reviews-wrapper active">
-         <block class="Magento\Review\Block\Product\Review" name="product.reviews.block" as="reviews" template="Magento_Review::review.phtml" ifconfig="catalog/review/active" before="-">
-            <block class="Magento\Review\Block\Form" name="product.review.form" as="review_form" ifconfig="catalog/review/active">
-                <arguments>
-                    <argument name="jsLayout" xsi:type="array">
-                        <item name="components" xsi:type="array">
-                            <item name="review-form" xsi:type="array">
-                                <item name="component" xsi:type="string">Magento_Review/js/view/review</item>
-                            </item>
-                        </item>
-                    </argument>
-                </arguments>
-                <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
-            </block>
-        </block>
-        <block class="Magento\Framework\View\Element\Text" name="product.reviews.addJs">
-            <arguments>
-                <argument name="text" xsi:type="string">
-<![CDATA[
-<script type="text/javascript">
-require([
-    'jquery'
-], function ($) {
-    'use strict';
+        <referenceContainer name="content">
+            <container name="reviews-wrapper" htmlTag="div" htmlId="tab-label-reviews" htmlClass="reviews-wrapper active">
+                 <block class="Magento\Review\Block\Product\Review" name="product.reviews.block" as="reviews" template="Magento_Review::review.phtml" ifconfig="catalog/review/active" before="-">
+                    <block class="Magento\Review\Block\Form" name="product.review.form" as="review_form" ifconfig="catalog/review/active">
+                        <arguments>
+                            <argument name="jsLayout" xsi:type="array">
+                                <item name="components" xsi:type="array">
+                                    <item name="review-form" xsi:type="array">
+                                        <item name="component" xsi:type="string">Magento_Review/js/view/review</item>
+                                    </item>
+                                </item>
+                            </argument>
+                        </arguments>
+                        <container name="product.review.form.fields.before" as="form_fields_before" label="Review Form Fields Before"/>
+                    </block>
+                </block>
+                <block class="Magento\Framework\View\Element\Text" name="product.reviews.addJs">
+                    <arguments>
+                        <argument name="text" xsi:type="string">
+        <![CDATA[
+        <script type="text/javascript">
+        require([
+            'jquery'
+        ], function ($) {
+            'use strict';
 
-    $('#tab-label-reviews').attr('role', 'tab').trigger('beforeOpen');
-    $(function () {
-        $('.product-info-main .reviews-actions a').click(function (event) {
-            var anchor;
+            $('#tab-label-reviews').attr('role', 'tab').trigger('beforeOpen');
+            $(function () {
+                $('.product-info-main .reviews-actions a').click(function (event) {
+                    var anchor;
 
-            anchor = $(this).attr('href').replace(/^.*?(#|$)/, '');
-            anchor = anchor === 'reviews' ? 'customer-reviews' : anchor;
-            $('html, body').animate({
-                scrollTop: $('#' + anchor).offset().top - 50
-            }, 300);
+                    anchor = $(this).attr('href').replace(/^.*?(#|$)/, '');
+                    anchor = anchor === 'reviews' ? 'customer-reviews' : anchor;
+                    $('html, body').animate({
+                        scrollTop: $('#' + anchor).offset().top - 50
+                    }, 300);
+                });
+            });
         });
-    });
-});
-</script>
-]]>
-                </argument>
-            </arguments>
-        </block>
-    </container>
-</referenceContainer>
+        </script>
+        ]]>
+                        </argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
     </body>
 </page>
