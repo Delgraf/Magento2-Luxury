@@ -135,6 +135,8 @@ $buttonLockManager = $block->getData('button_lock_manager');
         <?= $block->getChildHtml('form_additional_info') ?>
     </fieldset>
 
+    <p class="required-fields-note"><?= $block->escapeHtml(__('* Required Fields')) ?></p>
+    
     <div class="actions-toolbar">
         <div class="primary">
             <button type="submit" class="action save primary" title="<?= $escaper->escapeHtmlAttr(__('Save')) ?>"
