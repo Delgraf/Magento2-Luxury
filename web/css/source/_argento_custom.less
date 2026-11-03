@@ -4,62 +4,50 @@
 //
 //  Mobile header (< 768px)
 //  _____________________________________________
-//  Header 70px tall (+1px border). The logo fills the space between the menu
-//  toggle and the search icon (8px from each), up to 240x51, with 10px above
-//  and below; on narrow phones it scales down and stays vertically centred.
-//  Logo, menu toggle, search and minicart share the same vertical centre (35px).
+//  Logo centred on the page, 280px wide, with 10px above and below.
+//  On narrow screens it scales down automatically so it never reaches the
+//  icons (93px reserved on each side): e.g. 204px on a 390px iPhone.
+//  The header height follows the logo height, and the menu toggle, search
+//  and minicart stay on the logo's vertical centre.
 //  "body" raises specificity above the Theme Editor CSS (admin_backend.css),
 //  which is loaded after styles-m.css and sets the logo as position: absolute.
 
-@header-mobile__toggle-space: 59px;  // toggle (15px + 36px) + 8px gap
-@header-mobile__icons-space: 93px;   // search + minicart (85px) + 8px gap
+@header-mobile__logo-max-width: 280px;
+@header-mobile__icons-space: 186px;   // 93px on each side
+@header-mobile__logo-ratio: 0.21088;  // logo.svg height / width (62 / 294)
+@header-mobile__logo-width: ~"min(@{header-mobile__logo-max-width}, 100vw - @{header-mobile__icons-space})";
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
     body .page-header .header.content {
-        min-height: 60px; // + 10px top padding
+        // logo height + 10px below (the other 10px are the top padding)
+        min-height: ~"calc(@{header-mobile__logo-width} * @{header-mobile__logo-ratio} + 10px)";
 
         .logo {
             top: 50%;
-            left: @header-mobile__toggle-space;
-            right: @header-mobile__icons-space;
             min-height: 0;
             max-width: none;
             margin: 0;
             line-height: 0;
-            text-align: center;
-            transform: translateY(-50%);
+            transform: translate(-50%, -50%);
 
             img {
-                width: 240px;
-                max-width: 100%;
+                width: @header-mobile__logo-max-width;
+                max-width: ~"calc(100vw - @{header-mobile__icons-space})";
                 height: auto;
             }
         }
 
+        // Icons centred on the logo: centre = logo height / 2 + 10px
         .nav-toggle {
-            top: 17px;
+            top: ~"calc(@{header-mobile__logo-width} * @{header-mobile__logo-ratio} / 2 - 8px)";
         }
 
         .block-search label {
-            top: 12px;
+            top: ~"calc(@{header-mobile__logo-width} * @{header-mobile__logo-ratio} / 2 - 13px)";
         }
 
         .minicart-wrapper {
-            margin-top: 15px;
-        }
-    }
-}
-
-//
-//  Tablet header (768px - 1023px)
-//  _____________________________________________
-//  Larger logo than desktop (300x63 instead of 260x55).
-
-& when (@media-common = true) {
-    @media (min-width: @screen__m) and (max-width: (@screen__l - 1)) {
-        body .page-header .logo img {
-            width: 300px;
-            height: auto;
+            margin-top: ~"calc(@{header-mobile__logo-width} * @{header-mobile__logo-ratio} / 2 - 10px)";
         }
     }
 }
