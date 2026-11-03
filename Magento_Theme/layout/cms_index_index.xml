@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Delgraf. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Homepage alternative (white) logo: read it from this theme instead of pub/media -->
+        <referenceBlock name="logo-alt" template="Magento_Theme::html/header/logo-alt.phtml"/>
+    </body>
+</page>
