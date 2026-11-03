@@ -4,10 +4,10 @@
 //
 //  Mobile header
 //  _____________________________________________
-//  Header 62px tall (+1px border), logo up to 180x38 with 12px above and below,
+//  Header 62px tall (+1px border), logo up to 200x42 with 10px above and below,
 //  logo and icons vertically centred (mid = 31px).
-//  On narrow phones (< 375px) the logo shrinks to keep 12px from the icons
-//  and stays vertically centred.
+//  On narrow phones (< 386px) the logo shrinks to keep at least 8px from the
+//  search icon and stays vertically centred.
 //  "body" raises specificity above the Theme Editor CSS (admin_backend.css),
 //  which is loaded after styles-m.css and already centres the logo horizontally
 //  (position: absolute; left: 50%).
@@ -25,10 +25,10 @@
             transform: translate(-50%, -50%);
 
             img {
-                width: 180px;
+                width: 200px;
                 height: auto;
-                // Space taken by the icons on both sides (97px each)
-                max-width: calc(100vw - 194px);
+                // Space taken by the icons on both sides (93px each)
+                max-width: calc(100vw - 186px);
             }
         }
 
