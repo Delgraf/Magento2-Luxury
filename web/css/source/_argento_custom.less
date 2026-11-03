@@ -1,0 +1,38 @@
+// Delgraf Luxury - custom overrides
+// Loaded by Argento's _extend.less (custom overrides support).
+
+//
+//  Mobile header
+//  _____________________________________________
+//  Header 56px tall, logo 32px high, logo and icons vertically centred (mid = 28px).
+//  "body" raises specificity above the Theme Editor CSS (admin_backend.css),
+//  which is loaded after styles-m.css.
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    body .page-header .header.content {
+        min-height: 46px; // + 10px top padding
+
+        .logo {
+            min-height: 0;
+            margin: 2px 0 0;
+            line-height: 0;
+
+            img {
+                height: 32px;
+                width: auto;
+            }
+        }
+
+        .nav-toggle {
+            top: 10px;
+        }
+
+        .block-search label {
+            top: 5px;
+        }
+
+        .minicart-wrapper {
+            margin-top: 8px;
+        }
+    }
+}
