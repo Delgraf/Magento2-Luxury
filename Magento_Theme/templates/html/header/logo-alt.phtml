@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © Delgraf. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * Alternative (white) header logo shown on the homepage by Argento Luxury.
+ * Replaces Swissup_ThemeEditor::header/logo-alt.phtml so the image comes from
+ * this theme (web/images/logo-white.svg) instead of the media folder.
+ *
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Swissup\ThemeEditor\Block\Html\Header\LogoAlt $block
+ */
+
+// Keep the same size as the main logo block
+$logoBlock = $block->getLayout()->getBlock('logo');
+$logoWidth = $logoBlock ? $logoBlock->getLogoWidth() : $block->getLogoWidth();
+$logoHeight = $logoBlock ? $logoBlock->getLogoHeight() : $block->getLogoHeight();
+?>
+<img src="<?= $escaper->escapeUrl($block->getViewFileUrl('images/logo-white.svg')) ?>"
+     alt="<?= $escaper->escapeHtmlAttr($block->getLogoAlt()) ?>"
+     class="logo-alt"
+     <?= $logoWidth ? 'width="' . (int) $logoWidth . '"' : '' ?>
+     <?= $logoHeight ? 'height="' . (int) $logoHeight . '"' : '' ?>
+/>
