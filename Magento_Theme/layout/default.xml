@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Delgraf. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Header logo: overrides the one inherited from Swissup/argento-luxury -->
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.svg</argument>
+                <argument name="logo_width" xsi:type="number">190</argument>
+                <argument name="logo_height" xsi:type="number">40</argument>
+                <argument name="logo_alt" xsi:type="string">Delgraf</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>
