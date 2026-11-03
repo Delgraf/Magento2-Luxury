@@ -1,0 +1,15 @@
+<?php
+/**
+ * Copyright © Delgraf. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<?php // SVG favicon for modern browsers (preferred over the core ICO link) ?>
+<link rel="icon" type="image/svg+xml"
+      href="<?= $escaper->escapeUrl($block->getViewFileUrl('Magento_Theme::favicon.svg')) ?>">
+<?php // Home screen icon for iOS / iPadOS ?>
+<link rel="apple-touch-icon" sizes="180x180"
+      href="<?= $escaper->escapeUrl($block->getViewFileUrl('Magento_Theme::apple-touch-icon.png')) ?>">
