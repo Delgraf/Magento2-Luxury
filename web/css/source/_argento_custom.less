@@ -2,46 +2,64 @@
 // Loaded by Argento's _extend.less (custom overrides support).
 
 //
-//  Mobile header
+//  Mobile header (< 768px)
 //  _____________________________________________
-//  Header 62px tall (+1px border), logo up to 200x42 with 10px above and below,
-//  logo and icons vertically centred (mid = 31px).
-//  On narrow phones (< 386px) the logo shrinks to keep at least 8px from the
-//  search icon and stays vertically centred.
+//  Header 70px tall (+1px border). The logo fills the space between the menu
+//  toggle and the search icon (8px from each), up to 240x51, with 10px above
+//  and below; on narrow phones it scales down and stays vertically centred.
+//  Logo, menu toggle, search and minicart share the same vertical centre (35px).
 //  "body" raises specificity above the Theme Editor CSS (admin_backend.css),
-//  which is loaded after styles-m.css and already centres the logo horizontally
-//  (position: absolute; left: 50%).
+//  which is loaded after styles-m.css and sets the logo as position: absolute.
+
+@header-mobile__toggle-space: 59px;  // toggle (15px + 36px) + 8px gap
+@header-mobile__icons-space: 93px;   // search + minicart (85px) + 8px gap
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
     body .page-header .header.content {
-        min-height: 52px; // + 10px top padding
+        min-height: 60px; // + 10px top padding
 
         .logo {
             top: 50%;
+            left: @header-mobile__toggle-space;
+            right: @header-mobile__icons-space;
             min-height: 0;
             max-width: none;
             margin: 0;
             line-height: 0;
-            transform: translate(-50%, -50%);
+            text-align: center;
+            transform: translateY(-50%);
 
             img {
-                width: 200px;
+                width: 240px;
+                max-width: 100%;
                 height: auto;
-                // Space taken by the icons on both sides (93px each)
-                max-width: calc(100vw - 186px);
             }
         }
 
         .nav-toggle {
-            top: 13px;
+            top: 17px;
         }
 
         .block-search label {
-            top: 8px;
+            top: 12px;
         }
 
         .minicart-wrapper {
-            margin-top: 11px;
+            margin-top: 15px;
+        }
+    }
+}
+
+//
+//  Tablet header (768px - 1023px)
+//  _____________________________________________
+//  Larger logo than desktop (300x63 instead of 260x55).
+
+& when (@media-common = true) {
+    @media (min-width: @screen__m) and (max-width: (@screen__l - 1)) {
+        body .page-header .logo img {
+            width: 300px;
+            height: auto;
         }
     }
 }
