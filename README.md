@@ -17,19 +17,13 @@ php bin/magento deploy:mode:show
 
 ## Install
 
-1. Add the repository (only needed if the package is not available from Packagist):
-
-   ```bash
-   composer config repositories.delgraf-luxury vcs https://github.com/Delgraf/Magento2-Luxury
-   ```
-
-2. Install the theme:
+1. Install the theme from [Packagist](https://packagist.org/packages/delgraf/theme-frontend-luxury):
 
    ```bash
    composer require delgraf/theme-frontend-luxury:dev-master
    ```
 
-3. Register the theme:
+2. Register the theme:
 
    **Developer mode**
 
@@ -49,10 +43,10 @@ php bin/magento deploy:mode:show
    php bin/magento maintenance:disable
    ```
 
-4. Apply the theme in the admin: **Content → Design → Configuration**, edit the store view,
+3. Apply the theme in the admin: **Content → Design → Configuration**, edit the store view,
    set **Applied Theme** to **Delgraf Luxury** and save.
 
-5. Flush the cache again:
+4. Flush the cache again:
 
    ```bash
    php bin/magento cache:flush
@@ -127,12 +121,6 @@ php bin/magento deploy:mode:show
    php bin/magento setup:static-content:deploy -f it_IT en_US
    php bin/magento cache:flush
    php bin/magento maintenance:disable
-   ```
-
-4. If you added the repository during install, remove it:
-
-   ```bash
-   composer config --unset repositories.delgraf-luxury
    ```
 
 ## Notes
