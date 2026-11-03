@@ -2,19 +2,25 @@
 // Loaded by Argento's _extend.less (custom overrides support).
 
 //
-//  Mobile header
+//  Mobile header (< 768px)
 //  _____________________________________________
-//  Header 62px tall (+1px border), logo up to 200x42 with 10px above and below,
-//  logo and icons vertically centred (mid = 31px).
-//  On narrow phones (< 386px) the logo shrinks to keep at least 8px from the
-//  search icon and stays vertically centred.
+//  Logo centred on the page, 280px wide, with 10px above and below.
+//  On narrow screens it scales down automatically so it never reaches the
+//  icons (93px reserved on each side): e.g. 204px on a 390px iPhone.
+//  The header height follows the logo height, and the menu toggle, search
+//  and minicart stay on the logo's vertical centre.
 //  "body" raises specificity above the Theme Editor CSS (admin_backend.css),
-//  which is loaded after styles-m.css and already centres the logo horizontally
-//  (position: absolute; left: 50%).
+//  which is loaded after styles-m.css and sets the logo as position: absolute.
+
+@header-mobile__logo-max-width: 280px;
+@header-mobile__icons-space: 186px;   // 93px on each side
+@header-mobile__logo-ratio: 0.21088;  // logo.svg height / width (62 / 294)
+@header-mobile__logo-width: ~"min(@{header-mobile__logo-max-width}, 100vw - @{header-mobile__icons-space})";
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
     body .page-header .header.content {
-        min-height: 52px; // + 10px top padding
+        // logo height + 10px below (the other 10px are the top padding)
+        min-height: ~"calc(@{header-mobile__logo-width} * @{header-mobile__logo-ratio} + 10px)";
 
         .logo {
             top: 50%;
@@ -25,23 +31,23 @@
             transform: translate(-50%, -50%);
 
             img {
-                width: 200px;
+                width: @header-mobile__logo-max-width;
+                max-width: ~"calc(100vw - @{header-mobile__icons-space})";
                 height: auto;
-                // Space taken by the icons on both sides (93px each)
-                max-width: calc(100vw - 186px);
             }
         }
 
+        // Icons centred on the logo: centre = logo height / 2 + 10px
         .nav-toggle {
-            top: 13px;
+            top: ~"calc(@{header-mobile__logo-width} * @{header-mobile__logo-ratio} / 2 - 8px)";
         }
 
         .block-search label {
-            top: 8px;
+            top: ~"calc(@{header-mobile__logo-width} * @{header-mobile__logo-ratio} / 2 - 13px)";
         }
 
         .minicart-wrapper {
-            margin-top: 11px;
+            margin-top: ~"calc(@{header-mobile__logo-width} * @{header-mobile__logo-ratio} / 2 - 10px)";
         }
     }
 }
